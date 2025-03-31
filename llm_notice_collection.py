@@ -156,7 +156,7 @@ def notice_search(notice_ids, notice_list,folder_path):
     return notice_list
 
 def notice_collection():
-    collection = mongo_setting('news_scraping','gpt_llm_large_dataset')
+    collection = mongo_setting('llm_notice_test','test_notice_dataset')
     results = collection.find({},{'_id':0})
     existing_df = [i for i in results]
     existing_df = pd.DataFrame(existing_df)
@@ -165,8 +165,8 @@ def notice_collection():
         'title': '공고명',
         'link': '링크',
         }, inplace=True)
-    notice_ids = existing_df['공고번호'].to_list()
-    # notice_ids = []
+    # notice_ids = existing_df['공고번호'].to_list()
+    notice_ids = []
     notice_list = []
     folder_path = os.environ.get("folder_path")
     notice_list = notice_search(notice_ids,notice_list,folder_path)

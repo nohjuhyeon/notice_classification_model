@@ -10,22 +10,15 @@ load_dotenv()
 
 import json
 
-# JSON 파일 경로
-file_path = "gpt_llm_output.json"
-
-# JSON 파일을 딕셔너리로 불러오기
-with open(file_path, "r", encoding="utf-8") as file:
-    data = json.load(file)
-
-
-data
+collection = mongo_setting("llm_notice_test","test_notice_dataset")
+results = collection.find({}, {"_id": 0, "notice_id": 1})
 new_dict = []
 
 collection = mongo_setting("llm_notice_test", "gpt-4o-mini-test")
 results = collection.find({}, {"_id": 0, "notice_id": 1})
 id_list = [i["notice_id"] for i in results]
 
-for i in data:
+for i in results:
     try:
         if i["notice_id"] not in id_list and i['notice_text'].replace('\n','').replace(' ','') != '':
             context = i["notice_text"]

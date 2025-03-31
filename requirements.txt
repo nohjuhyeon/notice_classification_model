@@ -1,0 +1,11 @@
+selenium
+webdriver_manager
+pymongo
+pandas
+numpy
+langchain_community
+langchain
+olefile
+langchain_openai
+langchain_core
+langchain_ollama

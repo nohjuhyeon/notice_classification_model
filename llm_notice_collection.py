@@ -39,7 +39,7 @@ def wait_for_downloads(download_dir, timeout=30):
 
 
 def notice_search(notice_ids, notice_list,folder_path):
-    collection = mongo_setting('news_scraping','gpt_llm_large_dataset')
+    collection = mongo_setting('llm_notice_test','test_notice_dataset')
     try:
         url = 'http://apis.data.go.kr/1230000/ad/BidPublicInfoService/getBidPblancListInfoServcPPSSrch?serviceKey=Qa6CXT4r6qEr%2BkQt%2FJx6wJr5MPx45hKNJwNTScoYryT2uGz7GozIqpjBw%2FRMk1uE8l92NU7h89m20sa%2FXHKuaQ%3D%3D&pageNo=1&numOfRows=500&inqryDiv=1&inqryBgnDt={}&inqryEndDt={}&type=json'.format('202503170000', '202503240000')
         # url과 parameters를 response라는 변수로 받음 
